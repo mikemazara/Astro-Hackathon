@@ -1,7 +1,7 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Header from "./components/header/Header";
-import Home from "./components/home/home";
+import Home from "./components/home/Home";
 import Locations from "./components/locations/Locations";
 import View from "./components/view/View";
 
