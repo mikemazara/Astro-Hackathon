@@ -8,16 +8,16 @@ const View = ({thisLongLat}) => {
 // const lat = Number(thisLongLat.iss_position.latitude)
 // const lon = Number(thisLongLat.iss_position.longitude)
 
-const floatValueLat = parseFloat(thisLongLat.iss_position.latitude);
-const floatValueLon = parseFloat(thisLongLat.iss_position.longitude);
+const floatValueLat = (thisLongLat.iss_position.latitude) * 1;
+const floatValueLon = (thisLongLat.iss_position.longitude) * 1;
 console.log(floatValueLat);
 console.log(floatValueLon);
-
+console.log(typeof floatValueLat)
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
   });
 
-  const center = useMemo(() => ({ lat: {floatValueLat}, lng: {floatValueLon} }), []);
+  const center = useMemo(() => ({ lat: floatValueLat, lng: floatValueLat }), [floatValueLat, floatValueLon]);
 
 
  if (!floatValueLat || !floatValueLon) {
@@ -35,7 +35,7 @@ console.log(floatValueLon);
 
           <GoogleMap
             mapContainerClassName="map-container"
-            center={center}
+            center={ center }
             zoom={11}
           />
         </div>

@@ -17,6 +17,14 @@
     height: calc(100vh - 5rem);
     display: flex;
     justify-content: space-around;
+    &__title {
+        margin: 1rem 0rem;
+    }
+    &__card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
     &__container{
         margin: auto;
         background-color: black;
@@ -24,11 +32,12 @@
         height: 70%;
         width: 40%;
     }
-&__btn{
+    &__btn{
     background-color: white;
     border: none;
     width: 70%;
     height: 3rem;
     font-size: 1.5rem;
+    margin-top: 1.5rem;
 }
 }
