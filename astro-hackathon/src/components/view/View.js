@@ -28,7 +28,7 @@ console.log(typeof floatValueLat)
       {!isLoaded ? (
         <h1>Loading...</h1>
       ) : (
-        <div>
+        <div className="map__container-container">
           <Link to="/location" className="main__link">
             Back
           </Link>
