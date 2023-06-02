@@ -3,26 +3,26 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const Locations = () => {
-  const [thisLongLat, setThisLongLat] = useState({});
+const Locations = ({thisLongLat}) => {
+  // const [thisLongLat, setThisLongLat] = useState({});
 
-  useEffect(() => {
-    axios
-      .get("http://api.open-notify.org/iss-now.json")
-      .then((response) => {
-        setThisLongLat(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("http://api.open-notify.org/iss-now.json")
+  //     .then((response) => {
+  //       setThisLongLat(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }, []);
 
   const convertTime = (time) => {
     let date = new Date(time * 1000);
     return date;
   };
 
-  console.log(thisLongLat);
+ 
   if (!thisLongLat.iss_position) {
     return <h1>Loading...</h1>;
   }

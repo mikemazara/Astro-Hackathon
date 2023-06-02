@@ -3,13 +3,26 @@ import { useMemo, useState } from "react";
 import "./view.scss";
 import { Link } from "react-router-dom";
 
-const View = () => {
+const View = ({thisLongLat}) => {
+
+// const lat = Number(thisLongLat.iss_position.latitude)
+// const lon = Number(thisLongLat.iss_position.longitude)
+
+const floatValueLat = parseFloat(thisLongLat.iss_position.latitude);
+const floatValueLon = parseFloat(thisLongLat.iss_position.longitude);
+console.log(floatValueLat);
+console.log(floatValueLon);
+
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
   });
 
-  const center = useMemo(() => ({ lat: 37.7749, lng: -122.4194 }), []);
+  const center = useMemo(() => ({ lat: {floatValueLat}, lng: {floatValueLon} }), []);
 
+
+ if (!floatValueLat || !floatValueLon) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <div className="MapContainer">
       {!isLoaded ? (
