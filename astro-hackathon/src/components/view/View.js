@@ -1,13 +1,13 @@
 import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 import { useMemo, useState } from "react";
 import "./view.scss";
+import { Link } from "react-router-dom";
 
-const MapContainer = () => {
+const View = () => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
   });
 
-  
   const center = useMemo(() => ({ lat: 37.7749, lng: -122.4194 }), []);
 
   return (
@@ -16,6 +16,10 @@ const MapContainer = () => {
         <h1>Loading...</h1>
       ) : (
         <div>
+          <Link to="/location" className="main__link">
+            Back
+          </Link>
+
           <GoogleMap
             mapContainerClassName="map-container"
             center={center}
@@ -27,4 +31,4 @@ const MapContainer = () => {
   );
 };
 
-export default MapContainer;
+export default View;
